@@ -52,9 +52,7 @@ while running:
             neighbors = get_nb_neighbors(doubleBuffer[0], (x, y))
             doubleBuffer[1][y][x] = doubleBuffer[0][y][x] if neighbors == 2 else 1 if neighbors == 3 else 0
 
-    tempMatrix = doubleBuffer[0]
-    doubleBuffer[0] = doubleBuffer[1]
-    doubleBuffer[1] = tempMatrix
+    doubleBuffer[0], doubleBuffer[1] = doubleBuffer[1], doubleBuffer[0]
 
     pygame.display.flip()
     time.sleep(.01)
